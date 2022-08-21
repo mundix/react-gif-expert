@@ -7,6 +7,9 @@ export const GifExpertApp = () => {
    // const apiKey = 'eLExLPtDE06VxhwSZ4ZpRpaBss0IWc48';
 
    const onAddCategory = (newCategory) => {
+
+      if(categories.includes(newCategory)) return;
+
       setCategories([newCategory,...categories ]); //ok 
       // setCategories(cat => [...cat, 'Ninja Gaiden']); //another way
    }
