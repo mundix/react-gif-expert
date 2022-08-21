@@ -30,6 +30,7 @@ export const GifGrid = ({ category }) => {
                // images.map(img => (
                //    <li key={img.id}>{img.title}</li>
                // ))
+               // Aqui esta con destructuracion de los props id and title
                images.map(({id, title}) => (
                   <li key={id}>{title}</li>
                ))
