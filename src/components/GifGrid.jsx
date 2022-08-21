@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { getGifs } from '../helpers/getGifs';
+import { GifItem } from './GifItem';
 
 export const GifGrid = ({ category }) => {
    // Se vamos a tener codigo par alguna logia, si se usa el return e ves del implicito.
@@ -25,17 +26,20 @@ export const GifGrid = ({ category }) => {
    return (
       <>
          <h3>{category}</h3>
-         <ol>
+         <div className='card-grid'>
             {
                // images.map(img => (
                //    <li key={img.id}>{img.title}</li>
                // ))
                // Aqui esta con destructuracion de los props id and title
-               images.map(({id, title}) => (
-                  <li key={id}>{title}</li>
+               // images.map(({id, title}) => (
+               images.map((image) => (
+                  // <GifItem key={image.id} />
+                  // Se puede enviar todo las propiedades de image usando ...image
+                  <GifItem key={image.id} { ...image}/>
                ))
             }
-         </ol>
+         </div>
       </>
    )
 }
