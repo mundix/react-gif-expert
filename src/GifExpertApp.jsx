@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = () => {
 
@@ -8,32 +9,27 @@ export const GifExpertApp = () => {
 
    const onAddCategory = (newCategory) => {
 
-      if(categories.includes(newCategory)) return;
+      if (categories.includes(newCategory)) return;
 
-      setCategories([newCategory,...categories ]); //ok 
+      setCategories([newCategory, ...categories]); //ok 
       // setCategories(cat => [...cat, 'Ninja Gaiden']); //another way
    }
 
    return (
       <>
-         {/* Title */}
          <h1>GifExpertApp</h1>
-         <AddCategory 
-               // setCategories={ setCategories }
-               onNewCategory={ (event) => onAddCategory(event)}
-            />
+         <AddCategory
+            // setCategories={ setCategories }
+            onNewCategory={(event) => onAddCategory(event)}
+         />
 
-         {/* Input */}
-         
-         {/* Listado de Gif */}
          <button onClick={onAddCategory}>Agregar</button>
-         <ol>
-            {categories.map(category => {
-               return (<li key={category} >{category}</li>);
-            })}
-         </ol>
-
-            {/* Gif Item */}
+         {/* Return implicito se quita y se ponen ( ) y se remueven las { }  */}
+         {
+            categories.map(category => (
+               <GifGrid key={category} category={category} />
+            ))
+         }
       </>
    )
 }
