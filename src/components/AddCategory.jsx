@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const AddCategory = ({setCategories}) => {
+export const AddCategory = ({onNewCategory}) => {
 
    const [inputValue, setInputValue] = useState('')
 
@@ -17,11 +17,13 @@ export const AddCategory = ({setCategories}) => {
       // Cuando usas el setCategory del useState, el mantiene los valores de por si 
       // es comoel ejemplo del setCounter( (c) => c + 1); hace referencia a sus valores si lo volvemos como argumento 
       // de funcion de flecha 
-
+      
       if(inputValue.trim().length <= 1) return;
 
-      setCategories((categories) => [inputValue, ...categories]);
-      setInputValue(''); //limpia la caja de texto
+      // setCategories((categories) => [inputValue, ...categories]); //esto es si el props es setCategories hook
+      setInputValue(''); //limpia la caja de texto y se puede poner antes, por que el componente tiene prioridad con la propiedad 
+      // port eso se ejecuta primero el onNewCategory y luego la funcion del useState hook y este proceso es mas rapido. 
+      onNewCategory(inputValue.trim()); //esta ves es pasando el prop la funcion creada en el padre. 
    }
 
    return (
