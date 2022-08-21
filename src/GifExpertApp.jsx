@@ -7,7 +7,6 @@ import { AddCategory, GifGrid } from './components/';
 export const GifExpertApp = () => {
 
    const [categories, setCategories] = useState(['One Punch']);
-   // const apiKey = 'eLExLPtDE06VxhwSZ4ZpRpaBss0IWc48';
 
    const onAddCategory = (newCategory) => {
 
@@ -22,6 +21,7 @@ export const GifExpertApp = () => {
          <h1>GifExpertApp</h1>
          <AddCategory
             // setCategories={ setCategories }
+            //se recomienda usar una function que llame al setCategories , y no enviar el setCategory directamente. 
             onNewCategory={(event) => onAddCategory(event)}
          />
 
