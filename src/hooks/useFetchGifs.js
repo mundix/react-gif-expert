@@ -10,7 +10,8 @@ export const useFetchGifs = (category) => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
 
-
+   //Se crea una funcion async para llamarla en el useEffect como es async, no se puede 
+   //usar directamente enel useEffect 
    const getImage = async () => {
       const newImages = await getGifs(category);
       setImages(newImages);
